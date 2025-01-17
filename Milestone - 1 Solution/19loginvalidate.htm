@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form Validation</title>
+    <style>
+        #message {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get the email and password values
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const messageElement = document.getElementById("message");
+
+            // Regular expression to check if email contains "@"
+            const emailValid = email.includes("@");
+            const passwordValid = password.length >= 8;
+
+            // Display appropriate message based on validation
+            if (emailValid && passwordValid) {
+                messageElement.textContent = "Valid email and password!";
+                messageElement.className = "success"; // Green color for success
+            } else {
+                messageElement.textContent = "Invalid email or password!";
+                messageElement.className = "error"; // Red color for error
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Login Form</h2>
+    <form id="loginForm" onsubmit="validateForm(event)">
+        <label for="email">Email:</label>
+        <input type="text" id="email" required>
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="message"></p> <!-- Error or success message will be displayed here -->
+
+</body>
+</html>

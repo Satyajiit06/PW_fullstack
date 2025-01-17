@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Highlighting</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="text">
+        JavaScript is a versatile programming language that allows developers to create interactive web pages.
+        It is widely used in web development along with HTML and CSS to build dynamic websites and applications.
+    </p>
+
+    <script>
+        function highlightLongWords() {
+            const paragraph = document.getElementById("text");
+            const words = paragraph.innerText.split(" ");
+            
+            for (let i = 0; i < words.length; i++) {
+                if (words[i].length > 8) {
+                    words[i] = `<span class="highlight">${words[i]}</span>`;
+                }
+            }
+
+            paragraph.innerHTML = words.join(" ");
+        }
+
+        // Call the function to highlight the words on page load
+        highlightLongWords();
+    </script>
+
+</body>
+</html>

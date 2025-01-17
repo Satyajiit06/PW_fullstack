@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List Addition</title>
+    <script>
+        // Function to dynamically add a list item to the ordered list
+        function addListItem() {
+            const ol = document.getElementById("myList"); // Get the ordered list by id
+            const newItem = document.createElement("li"); // Create a new list item
+            newItem.textContent = "New List Item"; // Set the content of the new list item
+            ol.appendChild(newItem); // Append the new list item to the ordered list
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Dynamic Ordered List</h2>
+
+    <ol id="myList">
+        <li>First Item</li>
+        <li>Second Item</li>
+    </ol>
+
+    <button onclick="addListItem()">Add New Item</button>
+
+</body>
+</html>

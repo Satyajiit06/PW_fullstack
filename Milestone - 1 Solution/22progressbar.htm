@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Progress Bar</title>
+    <style>
+        body {
+            height: 2000px; /* To make the page scrollable */
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Style for the progress bar */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 5px;
+            background-color: #4caf50;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- The progress bar element -->
+    <div id="progressBar"></div>
+
+    <script>
+        window.onscroll = function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / docHeight) * 100;
+            document.getElementById("progressBar").style.width = scrollPercentage + "%";
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Heading Text</title>
+    <script>
+        // Function to toggle the text of the heading
+        function toggleText() {
+            const heading = document.getElementById("heading");
+            if (heading.innerText === "The most affordable learning platform") {
+                heading.innerText = "PW Skills";
+            } else {
+                heading.innerText = "The most affordable learning platform";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h1 id="heading">The most affordable learning platform</h1>
+    <button onclick="toggleText()">Click to Toggle Heading</button>
+
+</body>
+</html>

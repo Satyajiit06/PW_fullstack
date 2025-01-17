@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move Image with Arrow Keys</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+        }
+        #moveableImage {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            transition: top 0.1s, left 0.1s; /* Smooth movement */
+        }
+    </style>
+</head>
+<body>
+
+    <img id="moveableImage" src="https://navbharattimes.indiatimes.com/thumb/112294847/mahakumbh-2025-112294847.jpg?imgsize=181600&width=700&height=394&resizemode=75" alt="Moveable Image">
+
+    <script>
+        let image = document.getElementById("moveableImage");
+        let position = {
+            x: 50, // initial horizontal position
+            y: 50  // initial vertical position
+        };
+
+        // Function to move the image based on arrow key input
+        function moveImage(event) {
+            const step = 10; // The number of pixels to move the image per key press
+
+            switch (event.keyCode) {
+                case 37: // Left arrow key (keyCode 37)
+                    position.x -= step;
+                    break;
+                case 38: // Up arrow key (keyCode 38)
+                    position.y -= step;
+                    break;
+                case 39: // Right arrow key (keyCode 39)
+                    position.x += step;
+                    break;
+                case 40: // Down arrow key (keyCode 40)
+                    position.y += step;
+                    break;
+                default:
+                    return; // Exit function if the key is not an arrow key
+            }
+
+            // Update image position
+            image.style.left = position.x + "px";
+            image.style.top = position.y + "px";
+        }
+
+        // Add event listener to capture arrow key presses
+        window.addEventListener("keydown", moveImage);
+    </script>
+
+</body>
+</html>
